@@ -17,6 +17,7 @@
         protected function initRoutes() {
             //IndexController
             $routes['home'] =  array('route' => '/', 'controller' => 'indexController', 'action' => 'index');
+            $routes['ver_vaga'] =  array('route' => '/ver_vaga', 'controller' => 'indexController', 'action' => 'ver_vaga');
             $routes['contato'] =  array('route' => '/contato', 'controller' => 'indexController', 'action' => 'contato');
             $routes['login'] = array('route' => '/login', 'controller' => 'IndexController', 'action' => 'login');
 
