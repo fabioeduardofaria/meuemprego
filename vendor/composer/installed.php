@@ -3,7 +3,7 @@
         'name' => 'fabiofaria/mvc_php',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '0e45d40c4931102e3a3224fe896483077d02833a',
+        'reference' => '2ec7adbce2512ad45f632d1610da6d9f23a9639b',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'fabiofaria/mvc_php' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '0e45d40c4931102e3a3224fe896483077d02833a',
+            'reference' => '2ec7adbce2512ad45f632d1610da6d9f23a9639b',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

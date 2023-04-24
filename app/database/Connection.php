@@ -18,7 +18,7 @@ class Connection
         $host         =   "localhost";
         $db_name      =   "meuemprego";
         $user         =   "root";
-        $pass         =   "root";
+        $pass         =   "";
         $charset      =   "utf8";
         $db_driver    =   "mysql";
         $port         =   3306;
