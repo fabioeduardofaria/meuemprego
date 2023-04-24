@@ -34,7 +34,7 @@ class UsuarioController extends Action
         //faz a instancia de produto com a conexão com banco de dados
         $usuario = Container::getModel('Usuario');
 
-
+        // upload($_FILES['file_imagem'], "usuario");
 
         //seta os dados do form nos atributos da classe Usuário
         $usuario->__set('nome', isset($_POST['nome']) ? $_POST['nome'] : "");
@@ -46,6 +46,7 @@ class UsuarioController extends Action
         if ($usuario->validarCadastro()) {
             //SUCCESS ao validar cadastro
             if (count($usuario->getUsuarioPorEmail()) == 0) {
+                $usuario->__set('imagem', $_FILES['file_imagem']['size'] > 0 ? upload($_FILES['file_imagem'], "usuario") : "");
                 $usuario->salvar();
 
                 //podemos criar um atributo generico no objeto pois estamos herdando de action o view
@@ -130,7 +131,7 @@ class UsuarioController extends Action
             //SUCCESS ao validar cadastro
 
             if (count($usuario->getUsuarioPorEmail()) == 0 || $email === $email_atual) {
-
+                $usuario->__set('imagem', $_FILES['file_imagem']['size'] > 0 ? upload($_FILES['file_imagem'], "usuario") : "");
                 $usuario->atualizar();
 
                 //podemos criar um atributo generico no objeto pois estamos herdando de action o view

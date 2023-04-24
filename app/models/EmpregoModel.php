@@ -37,19 +37,26 @@ class EmpregoModel extends Model
 	{
 		$sql = "select e.id, e.id_usuario, u.nome, u.sobrenome, e.titulo, e.descricao, e.modalidade , 
 			e.habilidade, e.ativo, e.qtde_vaga, e.local_trabalho, e.telefone, e.email, e.salario, 
-			e.created_at from empregos as e inner join usuarios as u on e.id_usuario = u.id";
-		// 		SELECT
-		//    autor.autor_nome,
-		//    frase.frase_frases
-		// FROM
-		//    autor
-		// INNER JOIN
-		//    frase ON autor.autor_id = frase.autor_id
-		// WHERE
-		//    autor.autor_nome = 'pedro'
+			u.imagem, e.created_at from empregos as e inner join usuarios as u on e.id_usuario = u.id";
+	
 		return $this->db->query($sql)->fetchAll();
 	}
 
+	//recuperar um usuário por id
+	public function getEmpregoPorId()
+	{
+		$query = "select e.id, e.id_usuario, u.nome, u.sobrenome, e.titulo, e.descricao, e.modalidade , 
+			e.habilidade, e.ativo, e.qtde_vaga, e.local_trabalho, e.telefone, e.email, e.salario, 
+			u.imagem, e.created_at from empregos as e inner join usuarios as u on e.id_usuario = u.id
+			where e.id = :id";
+
+
+		$stmt = $this->db->prepare($query);
+		$stmt->bindValue(':id', $this->__get('id'));
+		$stmt->execute();
+
+		return $stmt->fetch(\PDO::FETCH_ASSOC);
+	}
 
 
 

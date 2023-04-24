@@ -11,15 +11,11 @@ use Core\model\Container;
 
 class AdminController extends Action
 {
-
     public function index()
     {
-        AuthController::validaAutenticacao();
-
-        
+        AuthController::validaAutenticacao();        
 
         $usuario = Container::getModel('Usuario');
-
         
         $this->view->qtdeUsuarios = $usuario->getTotalUsuarios();
         $this->view->title = "Admin - Home";
